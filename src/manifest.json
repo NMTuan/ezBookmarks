@@ -1,0 +1,47 @@
+{
+  "name": "简单书签",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "无压的浏览器书签管理插件",
+  "author": "NMTuan",
+  "homepage_url": "https://github.com/NMTuan/ezBookmarks",
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "background": {
+    "service_worker": "background/main.js"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content-scripts/main.js"],
+    "run_at": "document_end"
+  }],
+  "options_page": "options/index.html",
+  "commands": {
+    "addToBookmarks": {
+      "suggested_key": {
+        "default": "Alt+D",
+        "windows": "Alt+D",
+        "linux": "Alt+D",
+        "mac": "Alt+D"
+      },
+      "description": "添加到书签"
+    },
+    "openSearchBar": {
+      "suggested_key": {
+        "default": "Alt+F",
+        "windows": "Alt+F",
+        "linux": "Alt+F",
+        "mac": "Alt+F"
+      },
+      "description": "检索书签"
+    }
+  },
+  "permissions": ["storage", "tabs"],
+  "web_accessible_resources": [{
+    "resources": ["options/index.html"],
+    "matches": ["<all_urls>"]
+  }]
+}
