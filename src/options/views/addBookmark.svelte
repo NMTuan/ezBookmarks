@@ -162,25 +162,29 @@
   const confirmSubmit = () => {
     showRemoveConfirm = false
     loading = true
-    if (isOfficial) {
-      app
-        .callFunction({
-          name: 'remove_to_bookmark',
-          data: {
-            _id: formData._id,
-          },
-        })
-        .then(({ result }) => {
-          loading = false
-          if (result.code) {
-            error = result.msg
-          } else {
-            successAndClose()
-          }
-        })
-    } else {
+    // if (isOfficial) {
+    //   app
+    //     .callFunction({
+    //       name: 'remove_to_bookmark',
+    //       data: {
+    //         _id: formData._id,
+    //       },
+    //     })
+    //     .then(({ result }) => {
+    //       loading = false
+    //       if (result.code) {
+    //         error = result.msg
+    //       } else {
+    //         successAndClose()
+    //       }
+    //     })
+    // } else {
       collection
-        .doc(formData._id)
+        // .doc(formData._id)
+        .where({
+          _openid: '{openid}',
+          _id: formData._id
+        })
         .remove()
         .then((res) => {
           loading = false
@@ -189,7 +193,7 @@
         .catch(() => {
           loading = false
         })
-    }
+    // }
   }
   // confirmCancel
   const confirmCancel = () => {
