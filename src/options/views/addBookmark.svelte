@@ -121,40 +121,23 @@
     loading = true
     const ts = new Date().getTime()
     const newData = Object.assign({}, formData)
-    // 官方实例, 走云函数
-    if (isOfficial) {
-      app
-        .callFunction({
-          name: 'update_to_bookmark',
-          data: {
-            ...formData,
-            updateAt: ts,
-          },
-        })
-        .then(({ result }) => {
-          loading = false
-          if (result.code) {
-            error = result.msg
-          } else {
-            successAndClose()
-          }
-        })
-    } else {
-      delete newData._id
-      collection
-        .doc(formData._id)
-        .update({
-          ...newData,
-          updateAt: new Date().getTime(),
-        })
-        .then((res) => {
-          loading = false
-          successAndClose()
-        })
-        .catch(() => {
-          loading = false
-        })
-    }
+    delete newData._id
+    collection
+      .where({
+        _openid: '{openid}',
+        _id: formData._id
+      })
+      .update({
+        ...newData,
+        updateAt: new Date().getTime(),
+      })
+      .then((res) => {
+        loading = false
+        successAndClose()
+      })
+      .catch(() => {
+        loading = false
+      })
   }
 
   const removeBookmark = () => {
@@ -229,7 +212,8 @@
 <MyConfirm
   show={showRemoveConfirm}
   on:submit={confirmSubmit}
-  on:cancel={confirmCancel} />
+  on:cancel={confirmCancel}
+/>
 <MyLoading show={loading} />
 <MySuccess show={success} />
 <MyError bind:show={error} />
@@ -242,7 +226,8 @@
         class="addBookmark__input"
         type="text"
         bind:value={formData.title}
-        placeholder="标题" />
+        placeholder="标题"
+      />
     </div>
     <div class="mb-4">
       <input
@@ -251,14 +236,16 @@
         bind:value={tags}
         placeholder="标签: 以逗号分割(中英文都可)"
         bind:this={inputRef}
-        on:keydown={handleKeydown} />
+        on:keydown={handleKeydown}
+      />
     </div>
 
     <div class="flex items-center">
       {#if formData._id}
         <div
           on:click={updateBookmark}
-          class="addBookmark__button addBookmark__button--update ">
+          class="addBookmark__button addBookmark__button--update "
+        >
           更新书签
           <span class="text-sm text-sky-200/50">
             ( Ctrl+Enter / Command + Enter )
@@ -266,13 +253,15 @@
         </div>
         <div
           on:click={removeBookmark}
-          class="addBookmark__button addBookmark__button--remove">
+          class="addBookmark__button addBookmark__button--remove"
+        >
           移除
         </div>
       {:else}
         <div
           on:click={createBookmark}
-          class="addBookmark__button addBookmark__button--create">
+          class="addBookmark__button addBookmark__button--create"
+        >
           添加书签
           <span class="text-sm text-sky-200/50">
             ( Ctrl+Enter / Command + Enter )
