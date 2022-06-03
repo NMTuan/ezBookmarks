@@ -5,6 +5,7 @@
   let searchBarDialog = false
   const searchBarUrl = chrome.runtime.getURL('options/index.html#/searchBar')
 
+  let bookmarkRef
   let searchBarRef
   let searchBarHeight = 82
 
@@ -48,10 +49,14 @@
 
   // 点击搜索框之外的区域, 关闭搜索框
   document.addEventListener('click', (e) => {
+    if (bookmarkRef && !bookmarkRef.contains(e.target)) {
+      bookmarkDialog = false
+    }
     if (searchBarRef && !searchBarRef.contains(e.target)) {
       searchBarDialog = false
     }
   })
+
 </script>
 
 <main>
@@ -60,6 +65,7 @@
       class="dialog__bookmark"
       in:fade={{ duration: 150 }}
       out:fade={{ duration: 400 }}
+      bind:this={bookmarkRef}
     >
       <iframe
         title="addBookmark"
