@@ -115,19 +115,19 @@
   // 处理按键
   const handleKeydown = async (e) => {
     // 上
-    if (e.keyCode === 38) {
+    if (e.key === 'ArrowUp') {
       if (activeIndex > 0) {
         activeIndex--
       }
     }
     // 下
-    if (e.keyCode === 40) {
+    if (e.key === 'ArrowDown') {
       if (activeIndex < data.length - 1) {
         activeIndex++
       }
     }
     // 回车
-    if (e.keyCode === 13) {
+    if (e.key === 'Enter') {
       closeDialog()
       window.open(data[activeIndex].url)
     }
@@ -144,11 +144,11 @@
       max: activeItem ? activeItem.offsetTop + activeItem.clientHeight : 0,
     }
     // 区域向上滚, showRange.min < activeRange.min, 滚动至activeRange.min
-    if (e.keyCode === 38 && activeRange.min < showRange.min) {
+    if (e.key === 'ArrowUp' && activeRange.min < showRange.min) {
       resultRef.scrollTop = activeRange.min
     }
     // 区域向下滚, activeRange.max > showRange.max, 滚动至activeRange.max-窗口高度
-    if (e.keyCode === 40 && activeRange.max > showRange.max) {
+    if (e.key === 'ArrowDown' && activeRange.max > showRange.max) {
       resultRef.scrollTop = activeRange.max - resultRef.clientHeight
     }
   }
@@ -159,6 +159,14 @@
       chrome.tabs.sendMessage(currentTab.id, 'openSearchBar')
     }
   }
+
+  // esc 关闭对话框
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape'){
+      closeDialog()
+    }
+  })
+
 </script>
 
 <main

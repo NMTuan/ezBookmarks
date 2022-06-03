@@ -184,7 +184,7 @@
   // ctrl+回车 提交
   const handleKeydown = (e) => {
     const ctrlKey = e.ctrlKey || e.metaKey
-    if (ctrlKey && e.keyCode === 13) {
+    if (ctrlKey && e.key === 'Enter') {
       if (formData._id) {
         updateBookmark()
       } else {
@@ -192,6 +192,14 @@
       }
     }
   }
+
+  // esc 关闭对话框
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape'){
+      closeDialog()
+    }
+  })
+
 </script>
 
 <MyConfirm
