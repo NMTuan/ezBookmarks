@@ -1,12 +1,10 @@
-<img src="./src/assets/icon128.png" title="" alt="" data-align="center">
+<p align="center"><img src="./src/assets/icon128.png" title="" alt="" data-align="center"></p>
 
 ## 项目介绍
 
 简单书签 - 一个无压的浏览器书签管理扩展
 
-
-
-### 相关地址
+## 相关地址
 
 [chrome 网上应用商店](https://chrome.google.com/webstore/detail/%E7%AE%80%E5%8D%95%E4%B9%A6%E7%AD%BE/eepoajjgnajliplcimelcklkaobndkkm?hl=zh-CN&authuser=0) （自备梯子）
 
@@ -14,17 +12,13 @@ Edge 外接程序
 
 [GitHub 源码](https://github.com/NMTuan/ezBookmarks)
 
-
-
-### 开发背景
+## 开发背景
 
 近几年双链笔记的兴起，让我感受到了无压记录的魅力。一直在考虑如何把浏览器的书签整合到笔记中，曾经基于思源笔记的 api 尝试写过一个[浏览器扩展](https://github.com/NMTuan/sy_bookmarks)，但最终因为形态模糊目标不清晰，再没有继续下去。
 
 简单书签放弃了`all in one`的执念，锁定**无压**这个概念，让书签的使用不再有心智负担。
 
-
-
-### 功能特色
+## 功能特色
 
 - **云端同步**：所有数据均保存于腾讯云（cloudBase），保证多浏览器数据一致。
 
@@ -36,9 +30,11 @@ Edge 外接程序
 
 - **无压使用**：通过快速搜索`（alt+f）`寻找书签。
 
+## 界面预览
 
+![](.\other\thumb.gif)
 
-### 技术架构
+## 技术架构
 
 本项目基于以下技术开发：
 
@@ -48,11 +44,7 @@ Edge 外接程序
 
 由于 svelte/vite/cloudbase 都是边学边做，代码质量不高，见谅。
 
-
-
 ## 使用方法
-
-「图」
 
 1. 选择合适的市场（chrome | edge），安装此扩展。
 
@@ -68,9 +60,7 @@ Edge 外接程序
 
 7. 按照您设定好的快捷键，无压的使用吧。
 
-
-
-### 私有接入
+## 私有接入
 
 目前，`简单书签`最大的书签保存数量为 500 条/帐号，如果您需要更大的存储，可以考虑接入自己的腾讯云实例。
 
@@ -84,9 +74,7 @@ Edge 外接程序
 
 5. 参见上面的`使用方法`注册并登录即可。
 
-
-
-### 构建方法
+## 构建方法
 
 如果你希望构建自己的`简单书签`，只需要克隆本仓库，简单配置一下即可创建属于您自己的简单书签。
 
@@ -104,8 +92,6 @@ Edge 外接程序
 
 6. 参考上面的`使用方法`注册并登录即可。
 
-
-
 ## 支持一下
 
 如果该项目对您有所帮助，欢迎前往[Star](https://github.com/NMTuan/ezBookmarks)该项目。
@@ -115,8 +101,6 @@ Edge 外接程序
 也可以直接扫码，让我给主子买个罐头。
 
 <img src="./other/wepay.jpg" title="" alt="" height="240"><img src="./other/small_white.jpg" title="" alt="" height="240"><img src="./other/alipay.jpg" title="" alt="" height="240">
-
-
 
 ## 版权
 
