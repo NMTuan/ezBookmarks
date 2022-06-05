@@ -77,7 +77,7 @@
 
   // 回车提交
   const handleKeydown = (e) => {
-    if (mode === 'login' && e.keyCode === 13) {
+    if (mode === 'login' && e.key === 'Enter') {
       handleLogin()
     }
   }
