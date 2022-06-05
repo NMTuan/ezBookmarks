@@ -13,7 +13,7 @@
   "license": "MIT",
   "homepage": "https://github.com/NMTuan/ezBookmarks",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "watch": {
     "build": {
       "patterns": [
