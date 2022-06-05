@@ -32,8 +32,8 @@ Edge 外接程序
 
 ## 界面预览
 
-![](.\other\thumb.gif)
-[查看动图](.\other\thumb.gif)
+![](./other/thumb.gif)
+[查看动图](./other/humb.gif)
 
 ## 技术架构
 
