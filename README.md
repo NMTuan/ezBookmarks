@@ -97,7 +97,7 @@ Edge 外接程序
 
 如果该项目对您有所帮助，欢迎前往[Star](https://github.com/NMTuan/ezBookmarks)该项目。
 
-或者前往[面包多]()支持一个。
+或者前往[面包多](https://mianbaoduo.com/o/bread/YpuTmJds)支持一个。
 
 也可以直接扫码，让我给主子买个罐头。
 
